@@ -1,8 +1,5 @@
 #include "asf.h"
 
-int g_cnt = 0;
-char g_str[10];
-int batata;
 volatile int btn_flag = 0;
 // This code creates a progress bar on an OLED screen that
 // increases when the button is pressed.
@@ -12,6 +9,10 @@ void btn_callback(void) {
 
 void main(void) {
   // ...
+
+  int g_cnt = 0;
+  char g_str[10];
+  int batata;
 
   batata = batata + 1;
   while (1) {
