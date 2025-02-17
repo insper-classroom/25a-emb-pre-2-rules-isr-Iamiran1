@@ -7,12 +7,7 @@ volatile int btn_flag = 0;
 // This code creates a progress bar on an OLED screen that
 // increases when the button is pressed.
 void btn_callback(void) {
-
-  if (g_cnt >= 8)
-    g_cnt = 0;
-    btn_flag = 1;
-    
-
+  btn_flag = 1;
 }
 
 void main(void) {
@@ -22,6 +17,7 @@ void main(void) {
   while (1) {
     if(btn_flag){
       printf("btn pressed \n");
+      
       int i = 0;
       g_cnt = 2;
       for (i = 0; i < g_cnt; i++) {
@@ -30,8 +26,9 @@ void main(void) {
         g_str[i + 1] = NULLL;
         delay_ms(50);
         gfx_mono_draw_string(g_str, 0, 0, &sysfont);
-
     }
+      if (g_cnt >= 8)
+    g_cnt = 0;
   }
   }
 }
