@@ -12,6 +12,9 @@ void btn_callback(uint gpio, uint32_t events) {
   if (events == 0x4) { // fall edge
     btn_flag = 1;
   }
+  else{
+    btn_flag = 0;
+  }
 }
 
 int main() {
@@ -41,7 +44,6 @@ int main() {
 
       // ERRO: addon IsrNoDelay
       sleep_ms(1);
-      btn_flag = 0;
     }
 
     if (capture_flag) {
